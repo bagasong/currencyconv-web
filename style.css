@@ -1,0 +1,213 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    font-family: Montserrat;
+    background-color: rgb(148, 148, 148);
+    color: white;
+}
+
+.container{
+    width: 500px;
+    margin: 20px auto;
+    position: relative;
+    user-select: none;
+}
+
+.header{
+    background-color: rgb(125, 125, 125);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.header h1{
+    font-size: 1.9rem;
+}
+
+.date{
+    background-color: rgb(58, 58, 58);
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: .5rem 1rem .5rem 0;
+}
+
+ul.currencies{
+    height: calc(100vh - 40px - 100px - 40px - 58px);
+    background-color: rgb(58, 58, 58);
+    padding: 0 1.5rem 1rem 1.5rem;
+    list-style: none;
+    overflow-y: auto;
+}
+
+ul.currencies li{
+    background-color: rgb(100, 100, 100);
+    border-radius: 5px;
+    padding: 1rem 1rem 0.75rem 1rem;
+    display: ;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+ul.currencies li:last-child{
+    margin-bottom: 0;
+}
+
+ul.currencies li.base-currency{
+    background-color: rosybrown;
+}
+
+ul.currencies li .close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 0.5rem;
+    font-size: 1.5rem;
+    color: rgb(125, 125, 125);
+    cursor: pointer;
+}
+
+ul.currencies li .close:hover{
+    color: white;
+}
+
+/* scrollbar */
+ul.currencies::-webkit-scrollbar{
+    width: 10px;
+}
+
+ul.currencies::-webkit-scrollbar-thumb{
+    background-color: rgb(125, 125, 125);
+    border-bottom: 1rem solid rgb(58, 58, 58);
+}
+
+
+.flag{
+    width: 60px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 2px;
+    vertical-align: top;
+}
+
+.info{
+    display: inline-block;
+    width: 78%;
+}
+
+.info .input span{
+    font-size: 1.5rem;
+    display: inline-block;
+    width: 4rem;
+    text-align: center;
+}
+
+.info .input input{
+    font-size: 1.5rem;
+    width: 78%;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 3px;
+    color: white;
+    margin-bottom: 0.75rem;
+    padding: 0.3rem;
+}
+
+.info .currency-name{
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    margin-left: 4rem;
+}
+
+.info .base-currency-rate{
+    font-size: 0.8rem;
+    margin-left: 4rem;
+}
+
+.add-currency-list{
+    position: absolute;
+    bottom: 54px;
+    left: 0;
+    background-color: rgb(243, 227, 225);
+    color: rgb(0, 0, 0);
+    width: 100%;
+    overflow-y: auto;
+    height: 0;   
+    transition: all 0.25s;
+    opacity: 0;
+}
+
+ul.add-currency-list li{
+    list-style: none;
+    padding: 0.75rem;
+    border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+ul.add-currency-list li.disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+ul.add-currency-list li .flag{
+    width: 3rem;
+    height: 2rem;
+    vertical-align: middle;
+}
+
+ul.add-currency-list li span{
+    margin-left: 1rem;
+}
+
+
+
+.add-currency-btn{
+    background-color: salmon;
+    color: white;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-family: Montserrat;
+    font-weight: bolder;
+    border: none;
+    border-top: 3px solid rgb(75, 75, 75);
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.add-currency-btn.open{
+    background-color: rgb(119, 194, 255);
+    color: rgb(255, 255, 255);
+}
+
+.add-currency-btn.open + ul.add-currency-list{
+    height: calc(100% - 100px - 37px);
+    opacity: 1;
+}
+
+
+.add-currency-btn.open + ul.add-currency-list li:hover{
+    background-color: rgb(214, 214, 214);
+}
+
+@media (max-width: 600px){
+    html{font-size: 14px;}
+    .container{width: 100%; margin: 0 auto;}
+    ul.currencies{width: 100%; margin: 0 auto;}
+    .header h1{font-size: 2rem;}
+    .flag{width: 3rem; height: 2rem;}
+    .info .input span{font-size: 1.25rem; width: 3.5rem;}
+    .info .input input{font-size: 1.25rem; width: 76%;}
+    .info .currency-name{margin-left: 3.5rem;}
+    .info .base-currency-rate{margin-left: 3.5rem;}
+    ul.add-currency-list{bottom: 48px; height: calc(100% - 80px - 51px);}
+    .add-currency-btn i{left: 25%; top: 0.65rem;}
+}
